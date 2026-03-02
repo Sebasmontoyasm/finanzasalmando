@@ -1,10 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { ChevronDown } from "lucide-react"
+import { useEffect, useState, useRef } from "react"
+import { ChevronDown, Volume2, VolumeX } from "lucide-react"
 
 export function HeroSection() {
   const [opacity, setOpacity] = useState(1)
+  const [isMuted, setIsMuted] = useState(true)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,29 +18,53 @@ export function HeroSection() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted
+      setIsMuted(!isMuted)
+    }
+  }
+
   return (
     <section
       id="hero"
       className="relative h-screen w-full overflow-hidden flex items-center justify-center"
     >
-      {/* Background video overlay */}
-      <div className="absolute inset-0 bg-background/60 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background z-10" />
-
-      {/* Background video from S3  debo cambiar aqui cuando suba el S3*/}
+      {/* Background video from public folder - optimizado para video vertical */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        poster="https://finanzasalmando.com/thumbnails/hero-background.jpg"
+        className="absolute top-0 left-0 w-full h-full object-cover"
+        style={{
+          objectPosition: 'center center',
+        }}
+        poster="/thumbnails/hero-background.jpg"
       >
         <source
-          src="https://finanzasalmando.com/20260302Finanzasalmando.mp4"
+          src="/video/20260302Finanzasalmando.mp4"
           type="video/mp4"
         />
       </video>
+
+      {/* Background video overlay */}
+      <div className="absolute inset-0 bg-background/60 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background z-10" />
+
+      {/* Audio control button - z-index más alto */}
+      <button
+        onClick={toggleMute}
+        className="absolute top-6 right-6 z-50 w-14 h-14 flex items-center justify-center bg-black/40 backdrop-blur-md border-2 border-white/30 rounded-full hover:bg-black/60 hover:border-white/50 transition-all duration-300 shadow-lg"
+        aria-label={isMuted ? "Activar audio" : "Silenciar audio"}
+      >
+        {isMuted ? (
+          <VolumeX className="w-6 h-6 text-white" />
+        ) : (
+          <Volume2 className="w-6 h-6 text-white" />
+        )}
+      </button>
 
       {/* Hero content */}
       <div

@@ -124,3 +124,35 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Video background optimizations for different aspect ratios */
+@layer utilities {
+  /* Mejora el comportamiento de videos verticales en contenedores horizontales */
+  .video-cover-optimized {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+
+  /* Para videos verticales (como 480x848) en pantallas horizontales */
+  @media (min-aspect-ratio: 16/9) {
+    .video-cover-optimized {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  /* Para videos en pantallas verticales */
+  @media (max-aspect-ratio: 9/16) {
+    .video-cover-optimized {
+      width: auto;
+      height: 100%;
+    }
+  }
+}
