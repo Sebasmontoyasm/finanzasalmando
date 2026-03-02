@@ -35,7 +35,7 @@ export function HeroSection() {
         poster="https://finanzasalmando.com/thumbnails/hero-background.jpg"
       >
         <source
-          src="https://cf-templates-g9fbrkxxll25-us-east-1.s3.us-east-1.amazonaws.com/videos/20260302+Finanzasalmando.mp4"
+          src="https://finanzasalmando.com/20260302Finanzasalmando.mp4"
           type="video/mp4"
         />
       </video>
