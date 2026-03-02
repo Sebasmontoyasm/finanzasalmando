@@ -99,26 +99,28 @@ function VideoSlide({
   }, [isMuted])
 
   return (
-    <div className="relative aspect-video w-full overflow-hidden group cursor-pointer">
+    <div className="relative w-full h-[85vh] bg-black flex items-center justify-center group">
       <video
         ref={videoRef}
         muted={isMuted}
         loop
         playsInline
-        className="w-full h-full object-cover"
         poster={video.poster}
+        className="max-h-full max-w-full object-contain"
       >
         <source src={video.src} type="video/mp4" />
       </video>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-background/30 group-hover:bg-background/50 transition-colors duration-500" />
+      <div className="absolute inset-0 bg-background/30 group-hover:bg-background/50 transition-colors duration-500 pointer-events-none" />
 
       {/* Play / Pause */}
       <button
-        onClick={togglePlay}
+        onClick={(e) => {
+          e.stopPropagation()
+          togglePlay()
+        }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-16 h-16 md:w-20 md:h-20 flex items-center justify-center border-2 border-foreground/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-foreground/10"
-        aria-label={isPlaying ? "Pausar video" : "Reproducir video"}
       >
         {isPlaying ? (
           <Pause className="size-6 md:size-8 text-foreground" />
@@ -127,11 +129,13 @@ function VideoSlide({
         )}
       </button>
 
-      {/* Mute / Unmute */}
+      {/* Mute */}
       <button
-        onClick={toggleMute}
+        onClick={(e) => {
+          e.stopPropagation()
+          toggleMute()
+        }}
         className="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center bg-background/60 backdrop-blur rounded-full"
-        aria-label={isMuted ? "Activar sonido" : "Silenciar video"}
       >
         {isMuted ? (
           <VolumeX className="size-5 text-foreground" />
@@ -140,8 +144,8 @@ function VideoSlide({
         )}
       </button>
 
-      {/* Title */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10">
+      {/* Text */}
+      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10 pointer-events-none">
         <p className="text-xs tracking-[0.25em] uppercase text-accent mb-2">
           {video.subtitle}
         </p>
@@ -170,17 +174,18 @@ export function VideoCarousel() {
   }, [api])
 
   return (
-    <section className="relative py-24 md:py-32 bg-secondary">
+    <section
+      id="videos"
+      className="relative py-24 md:py-32 bg-secondary scroll-mt-28"
+    >
       <div className="px-6 md:px-12 lg:px-20 mb-12">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div>
-            <p className="text-sm tracking-[0.3em] uppercase text-accent mb-4">
-              Nuestro trabajo
-            </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold">
-              Contenido destacado
-            </h2>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <p className="text-sm tracking-[0.3em] uppercase text-accent mb-4">
+            Nuestro trabajo
+          </p>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold">
+            Contenido destacado
+          </h2>
         </div>
       </div>
 
@@ -201,7 +206,6 @@ export function VideoCarousel() {
         </CarouselContent>
       </Carousel>
 
-      {/* Controls */}
       <div className="px-6 md:px-12 lg:px-20 mt-8">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -219,26 +223,13 @@ export function VideoCarousel() {
             ))}
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-sm font-mono">
-              {String(current + 1).padStart(2, "0")} /
-              {String(count).padStart(2, "0")}
-            </span>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => api?.scrollPrev()}
-                className="w-10 h-10 flex items-center justify-center border"
-              >
-                <ChevronLeft className="size-5" />
-              </button>
-              <button
-                onClick={() => api?.scrollNext()}
-                className="w-10 h-10 flex items-center justify-center border"
-              >
-                <ChevronRight className="size-5" />
-              </button>
-            </div>
+          <div className="flex items-center gap-2">
+            <button onClick={() => api?.scrollPrev()}>
+              <ChevronLeft />
+            </button>
+            <button onClick={() => api?.scrollNext()}>
+              <ChevronRight />
+            </button>
           </div>
         </div>
       </div>

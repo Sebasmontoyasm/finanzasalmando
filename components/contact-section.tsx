@@ -5,15 +5,20 @@ import { cn } from "@/lib/utils"
 import { ArrowUpRight } from "lucide-react"
 
 const socialLinks = [
-  { label: "Instagram", href: "#" },
-  { label: "YouTube", href: "#" },
-  { label: "Linkedin", href: "#" },
-  { label: "Whatsapp", href: "#" },
+  { label: "Instagram", href: "https://www.instagram.com/finanzasalmando" },
+  { label: "YouTube", href: "" },
+  { label: "Linkedin", href: "https://www.linkedin.com/in/danielagiraldomarketing" },
+  { label: "Whatsapp", href: "https://wa.me/573177723994" },
 ]
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  })
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,6 +30,33 @@ export function ContactSection() {
     if (sectionRef.current) observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    const phoneNumber = "573177723994" // +57 317 7723994
+
+    // Construir mensaje de WhatsApp
+    const whatsappMessage = `Hola! 
+
+*Nombre:* ${formData.name}
+*Email:* ${formData.email}
+
+*Mensaje:*
+${formData.message}
+
+---
+Enviado desde finanzasalmando.com`
+
+    // Codificar el mensaje para URL
+    const encodedMessage = encodeURIComponent(whatsappMessage)
+
+    // Abrir WhatsApp en nueva pestaña
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank")
+
+    // Limpiar formulario
+    setFormData({ name: "", email: "", message: "" })
+  }
 
   return (
     <section
@@ -61,9 +93,15 @@ export function ContactSection() {
               >
                 daniela.giraldo@gmail.com
               </a>
-              <span className="text-muted-foreground">
-                +57 317 7723994
-              </span>
+              <a
+                href="https://wa.me/573177723994"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-[#25D366] transition-colors duration-300 flex items-center gap-2"
+              >
+                <span>+57 317 7723994</span>
+                <ArrowUpRight className="size-4" />
+              </a>
             </div>
 
             {/* Social links */}
@@ -72,6 +110,8 @@ export function ContactSection() {
                 <a
                   key={link.label}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-1 px-4 py-2 border border-border text-sm tracking-[0.1em] uppercase text-muted-foreground hover:text-foreground hover:border-foreground/40 transition-colors duration-300"
                 >
                   {link.label}
@@ -90,7 +130,7 @@ export function ContactSection() {
                 : "opacity-0 translate-y-10"
             )}
           >
-            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="name"
@@ -101,6 +141,9 @@ export function ContactSection() {
                 <input
                   id="name"
                   type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full bg-transparent border-b border-border py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent transition-colors duration-300"
                   placeholder="Tu nombre"
                 />
@@ -115,6 +158,9 @@ export function ContactSection() {
                 <input
                   id="email"
                   type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full bg-transparent border-b border-border py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent transition-colors duration-300"
                   placeholder="tu@email.com"
                 />
@@ -129,6 +175,9 @@ export function ContactSection() {
                 <textarea
                   id="message"
                   rows={4}
+                  required
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full bg-transparent border-b border-border py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-accent transition-colors duration-300 resize-none"
                   placeholder="Cuéntanos sobre tu proyecto..."
                 />
