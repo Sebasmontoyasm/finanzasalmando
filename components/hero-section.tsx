@@ -51,7 +51,7 @@ export function HeroSection() {
 
       {/* Background video overlay */}
       <div className="absolute inset-0 bg-background/60 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background z-10" />
+      <div className="absolute inset-0 bg-linear-to-b from-background/30 via-transparent to-background z-10" />
 
       {/* Audio control button - z-index más alto */}
       <button

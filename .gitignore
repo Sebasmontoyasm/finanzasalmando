@@ -14,11 +14,9 @@ out/
 dist/
 
 # Video files (too large for git)
-*.mp4
 *.mov
 *.avi
 *.webm
-thumbnails/
 
 # AWS deployment files (optional - remove if you want to track them)
 # setup-s3.sh
