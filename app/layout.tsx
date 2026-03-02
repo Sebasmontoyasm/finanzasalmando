@@ -10,24 +10,46 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: 'FINANZAS AL MANDO',
-  description: 'Finanzas al mando',
+  title: 'Finanzas al Mando | Daniela Giraldo',
+  description: 'Asesoría financiera personalizada. Toma el control de tus finanzas con estrategias efectivas y profesionales.',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/favicon.ico',
+        sizes: '32x32',
+        type: 'image/x-icon',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
       },
       {
-        url: '/icon.svg',
+        url: '/favicon.svg',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: [
+      {
+        url: '/apple-touch-icon.png',
+        sizes: '180x180',
+        type: 'image/png',
+      },
+    ],
+  },
+  manifest: '/site.webmanifest',
+  openGraph: {
+    title: 'Finanzas al Mando | Daniela Giraldo',
+    description: 'Asesoría financiera personalizada. Toma el control de tus finanzas.',
+    url: 'https://finanzasalmando.com',
+    siteName: 'Finanzas al Mando',
+    locale: 'es_CO',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Finanzas al Mando | Daniela Giraldo',
+    description: 'Asesoría financiera personalizada. Toma el control de tus finanzas.',
   },
 }
 
