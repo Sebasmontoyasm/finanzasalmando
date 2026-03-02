@@ -1,0 +1,26 @@
+# v0 runtime files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+
+# Common ignores
+node_modules/
+.next/
+.env*.local
+.DS_Store
+
+# Build output
+out/
+dist/
+
+# Video files (too large for git)
+*.mp4
+*.mov
+*.avi
+*.webm
+thumbnails/
+
+# AWS deployment files (optional - remove if you want to track them)
+# setup-s3.sh
+# deploy.sh
+# upload-videos.sh
