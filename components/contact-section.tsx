@@ -78,7 +78,7 @@ Enviado desde finanzasalmando.com`
             <p className="text-sm tracking-[0.3em] uppercase text-accent mb-4 font-sans">
               Contacto
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-accent leading-tight text-balance">
               {"Hablemos de tu próximo proyecto"}
             </h2>
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mt-6 max-w-md">

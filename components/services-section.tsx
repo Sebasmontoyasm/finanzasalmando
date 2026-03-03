@@ -68,7 +68,7 @@ export function ServicesSection() {
           <p className="text-sm tracking-[0.3em] uppercase text-accent mb-4 font-sans">
             Servicios
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance max-w-3xl">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-accent leading-tight text-balance max-w-3xl">
             Lo que hacemos mejor
           </h2>
         </div>

@@ -42,11 +42,8 @@ export function AboutSection() {
           )}
         >
           <p className="text-sm tracking-[0.3em] uppercase text-accent mb-4 font-sans">
-            Sobre nosotros
+            ¿Quién está detrás de Finanzas al Mando?
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-            El arte de contar historias a través del video
-          </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 mt-12">
@@ -58,21 +55,24 @@ export function AboutSection() {
                 : "opacity-0 translate-y-10"
             )}
           >
-            <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
-              En Amplify, transformamos ideas en experiencias visuales
-              memorables. Combinamos tecnología de vanguardia con narrativa
-              cinematográfica para crear contenido que conecta, inspira y
-              trasciende fronteras.
+            <p className="text-foreground/90 leading-relaxed text-lg md:text-xl font-light mb-6">
+              Soy <span className="font-semibold text-accent">Daniela Giraldo Salazar</span>, consultora financiera y asesora en protección.
             </p>
-            <p className="text-muted-foreground leading-relaxed text-base md:text-lg mt-6">
-              Cada proyecto es una oportunidad para amplificar tu visión.
-              Desde producción audiovisual hasta estrategia de contenido
-              digital, nuestro equipo se dedica a elevar cada pieza creativa
-              al siguiente nivel.
+            <p className="text-foreground/80 leading-relaxed text-base md:text-lg mb-6">
+              He trabajado ayudando a personas a tomar decisiones financieras más inteligentes y estratégicas.
+            </p>
+            <p className="text-foreground/80 leading-relaxed text-base md:text-lg mb-6">
+              Sé lo que es empezar desde cero.<br />
+              Sé lo que es querer independencia.<br />
+              Y sé que el conocimiento financiero cambia vidas cuando se aplica correctamente.
+            </p>
+            <p className="text-foreground/90 leading-relaxed text-lg md:text-xl font-medium">
+              Por eso creé este programa:<br />
+              <span className="text-accent">Para que tengas claridad, orden y dirección.</span>
             </p>
           </div>
 
-          {/* Stats grid */}
+          {/* Stats grid - Actualizado para finanzas */}
           <div
             className={cn(
               "grid grid-cols-2 gap-6 transition-all duration-1000 delay-400",
@@ -81,19 +81,38 @@ export function AboutSection() {
                 : "opacity-0 translate-y-10"
             )}
           >
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="border border-border p-6 flex flex-col justify-center"
-              >
-                <span className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-                  {stat.number}
-                </span>
-                <span className="text-sm text-muted-foreground mt-2 tracking-wide uppercase">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+            <div className="border-2 border-accent/30 p-6 flex flex-col justify-center hover:border-accent transition-colors duration-300">
+              <span className="font-sans text-3xl md:text-4xl font-bold text-accent">
+                +1440
+              </span>
+              <span className="text-sm text-foreground/70 mt-2 tracking-wide uppercase">
+                Clientes asesorados
+              </span>
+            </div>
+            <div className="border-2 border-accent/30 p-6 flex flex-col justify-center hover:border-accent transition-colors duration-300">
+              <span className="font-sans text-3xl md:text-4xl font-bold text-accent">
+                10+
+              </span>
+              <span className="text-sm text-foreground/70 mt-2 tracking-wide uppercase">
+                Años de experiencia
+              </span>
+            </div>
+            <div className="border-2 border-accent/30 p-6 flex flex-col justify-center hover:border-accent transition-colors duration-300">
+              <span className="font-sans text-3xl md:text-4xl font-bold text-accent">
+                100%
+              </span>
+              <span className="text-sm text-foreground/70 mt-2 tracking-wide uppercase">
+                Compromiso
+              </span>
+            </div>
+            <div className="border-2 border-accent/30 p-6 flex flex-col justify-center hover:border-accent transition-colors duration-300">
+              <span className="font-sans text-3xl md:text-4xl font-bold text-accent">
+                24/7
+              </span>
+              <span className="text-sm text-foreground/70 mt-2 tracking-wide uppercase">
+                Soporte disponible
+              </span>
+            </div>
           </div>
         </div>
       </div>
