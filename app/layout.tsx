@@ -11,7 +11,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: 'Finanzas al Mando | Daniela Giraldo',
-  description: 'Asesoría financiera personalizada. Toma el control de tus finanzas con estrategias efectivas y profesionales.',
+  description: 'Método práctico para construir libertad financiera con estrategia y propósito',
   icons: {
     icon: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   openGraph: {
     title: 'Finanzas al Mando | Daniela Giraldo',
-    description: 'Asesoría financiera personalizada. Toma el control de tus finanzas.',
+    description: 'Método práctico para construir libertad financiera con estrategia y propósito.',
     url: 'https://finanzasalmando.com',
     siteName: 'Finanzas al Mando',
     locale: 'es_CO',

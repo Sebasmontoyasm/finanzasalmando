@@ -27,32 +27,18 @@ const videos = [
   },
   {
     id: 2,
-    title: "Documental Urbano",
-    subtitle: "Dirección Creativa",
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    title: "¿Te ha pasado?",
+    subtitle: "Daniela Giraldo",
+    src: "/video/carrusel/2.mp4",
     poster: "/placeholder.svg",
   },
   {
     id: 3,
-    title: "Spot Comercial",
-    subtitle: "Marca & Estrategia",
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+    title: "Protege a tu familia",
+    subtitle: "Daniela Giraldo",
+    src: "/video/carrusel/3.mp4",
     poster: "/placeholder.svg",
-  },
-  {
-    id: 4,
-    title: "Videoclip Musical",
-    subtitle: "Dirección Artística",
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-    poster: "/placeholder.svg",
-  },
-  {
-    id: 5,
-    title: "Cortometraje",
-    subtitle: "Narrativa Visual",
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-    poster: "/placeholder.svg",
-  },
+  }
 ]
 
 function VideoSlide({

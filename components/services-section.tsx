@@ -2,35 +2,39 @@
 
 import { useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
-import { Film, Camera, Palette, Megaphone } from "lucide-react"
+import { TrendingUp, GraduationCap, Shield, Lightbulb } from "lucide-react"
 
 const services = [
   {
-    icon: Film,
-    title: "Producción Audiovisual",
+    icon: TrendingUp,
+    title: "Consultoría Financiera con Equipo Especializado",
     description:
-      "Desde la conceptualización hasta la postproducción. Creamos piezas cinematográficas que capturan la esencia de tu marca.",
+      "Obtén una sesión estratégica de 60 minutos sin costo, donde analizaremos tu situación actual y definiremos oportunidades claras de crecimiento y protección patrimonial.",
     number: "01",
   },
   {
-    icon: Camera,
-    title: "Dirección Creativa",
+    icon: GraduationCap,
+    title: "Educación Financiera, Inversiones y Energía con Enfoque Estratégico",
     description:
-      "Guiamos cada proyecto con una visión artística única. Cada frame es una oportunidad para contar tu historia.",
+      "He creado programas diseñados para personas que desean elevar su nivel financiero, comprender el mundo de las inversiones y fortalecer su mentalidad de crecimiento desde una perspectiva integral.",
+    points: [
+      "No es solo teoría.",
+      "Es estructura, claridad y aplicación real."
+    ],
     number: "02",
   },
   {
-    icon: Palette,
-    title: "Diseño & Motion",
+    icon: Shield,
+    title: "Protección Patrimonial y Seguros",
     description:
-      "Animaciones, gráficos en movimiento y diseño visual que elevan el impacto de cada producción.",
+      "Análisis completo de tu situación actual y diseño de estrategias de protección para tu patrimonio, familia y futuro financiero.",
     number: "03",
   },
   {
-    icon: Megaphone,
-    title: "Estrategia Digital",
+    icon: Lightbulb,
+    title: "Planeación Financiera Integral",
     description:
-      "Optimizamos tu contenido para cada plataforma. Maximizamos el alcance y la conexión con tu audiencia.",
+      "Diseñamos un plan financiero personalizado que incluye inversiones, ahorro, protección y estrategias de crecimiento a corto, mediano y largo plazo.",
     number: "04",
   },
 ]
@@ -54,7 +58,7 @@ export function ServicesSection() {
     <section
       id="services"
       ref={sectionRef}
-      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-background"
+      className="relative py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-secondary"
     >
       <div className="max-w-6xl mx-auto">
         <div
@@ -68,17 +72,17 @@ export function ServicesSection() {
           <p className="text-sm tracking-[0.3em] uppercase text-accent mb-4 font-sans">
             Servicios
           </p>
-          <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-accent leading-tight text-balance max-w-3xl">
-            Lo que hacemos mejor
+          <h2 className="font-sans text-4xl md:text-5xl lg:text-6xl font-bold text-accent leading-tight text-balance max-w-3xl">
+            Cómo puedo ayudarte
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-px mt-16 bg-border">
+        <div className="grid md:grid-cols-2 gap-6 mt-16">
           {services.map((service, index) => (
             <div
               key={service.number}
               className={cn(
-                "bg-background p-8 md:p-10 group hover:bg-secondary transition-all duration-500",
+                "bg-background border-2 border-accent/20 p-8 md:p-10 group hover:border-accent hover:bg-background/50 transition-all duration-500 rounded-lg",
                 "transition-all duration-1000",
                 isVisible
                   ? "opacity-100 translate-y-0"
@@ -87,18 +91,20 @@ export function ServicesSection() {
               style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
               <div className="flex items-start justify-between mb-6">
-                <service.icon className="size-8 text-accent" />
-                <span className="font-mono text-sm text-muted-foreground">
+                <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors duration-300">
+                  <service.icon className="size-7 text-accent" />
+                </div>
+                <span className="font-mono text-sm text-accent/60 font-semibold">
                   {service.number}
                 </span>
               </div>
-              <h3 className="font-serif text-xl md:text-2xl font-bold text-foreground mb-4">
+              <h3 className="font-sans text-xl md:text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-foreground/70 leading-relaxed">
                 {service.description}
               </p>
-              <div className="mt-6 h-px bg-border w-0 group-hover:w-full transition-all duration-700" />
+              <div className="mt-6 h-0.5 bg-accent/20 w-0 group-hover:w-full transition-all duration-700" />
             </div>
           ))}
         </div>

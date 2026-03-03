@@ -99,18 +99,18 @@ export function AboutSection() {
             </div>
             <div className="border-2 border-accent/30 p-6 flex flex-col justify-center hover:border-accent transition-colors duration-300">
               <span className="font-sans text-3xl md:text-4xl font-bold text-accent">
-                100%
+               +300
               </span>
               <span className="text-sm text-foreground/70 mt-2 tracking-wide uppercase">
-                Compromiso
+                Vidas transformadas
               </span>
             </div>
             <div className="border-2 border-accent/30 p-6 flex flex-col justify-center hover:border-accent transition-colors duration-300">
               <span className="font-sans text-3xl md:text-4xl font-bold text-accent">
-                24/7
+                +85 mil millones
               </span>
               <span className="text-sm text-foreground/70 mt-2 tracking-wide uppercase">
-                Soporte disponible
+                Respaldo financiero
               </span>
             </div>
           </div>

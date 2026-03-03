@@ -18,6 +18,7 @@ export function ContactSection() {
     name: "",
     email: "",
     message: "",
+    joinTeam: false,
   })
 
   useEffect(() => {
@@ -37,11 +38,11 @@ export function ContactSection() {
     const phoneNumber = "573177723994" // +57 317 7723994
 
     // Construir mensaje de WhatsApp
-    const whatsappMessage = `Hola! 
+    const whatsappMessage = `Hola! 👋
 
 *Nombre:* ${formData.name}
 *Email:* ${formData.email}
-
+${formData.joinTeam ? '\n✨ *Quiero hacer parte de tu equipo*\n' : ''}
 *Mensaje:*
 ${formData.message}
 
@@ -55,7 +56,7 @@ Enviado desde finanzasalmando.com`
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank")
 
     // Limpiar formulario
-    setFormData({ name: "", email: "", message: "" })
+    setFormData({ name: "", email: "", message: "", joinTeam: false })
   }
 
   return (
@@ -182,9 +183,27 @@ Enviado desde finanzasalmando.com`
                   placeholder="Cuéntanos sobre tu proyecto..."
                 />
               </div>
+
+              {/* Checkbox para unirse al equipo */}
+              <div className="flex items-start gap-3 py-2">
+                <input
+                  type="checkbox"
+                  id="joinTeam"
+                  checked={formData.joinTeam}
+                  onChange={(e) => setFormData({ ...formData, joinTeam: e.target.checked })}
+                  className="mt-1 w-5 h-5 rounded border-2 border-accent/50 bg-transparent checked:bg-accent checked:border-accent focus:ring-2 focus:ring-accent/50 focus:ring-offset-0 transition-all duration-300 cursor-pointer accent-accent"
+                />
+                <label
+                  htmlFor="joinTeam"
+                  className="text-sm text-foreground/90 leading-relaxed cursor-pointer select-none hover:text-accent transition-colors duration-300"
+                >
+                  ✨ Quiero hacer parte de tu equipo
+                </label>
+              </div>
+
               <button
                 type="submit"
-                className="mt-4 px-8 py-4 bg-foreground text-background text-sm tracking-[0.15em] uppercase font-medium hover:bg-accent hover:text-accent-foreground transition-colors duration-300 self-start"
+                className="mt-4 px-8 py-4 bg-foreground text-background text-sm tracking-[0.15em] uppercase font-medium hover:bg-accent hover:text-background transition-colors duration-300 self-start"
               >
                 Enviar mensaje
               </button>

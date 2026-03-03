@@ -57,10 +57,10 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-background/60 z-10 animate-in fade-in duration-700" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background z-10" />
 
-      {/* Audio control button - z-index más alto */}
+      {/* Audio control button - parte inferior derecha */}
       <button
         onClick={toggleMute}
-        className="absolute top-6 right-6 z-50 w-14 h-14 flex items-center justify-center bg-black/40 backdrop-blur-md border-2 border-white/30 rounded-full hover:bg-black/60 hover:border-white/50 transition-all duration-300 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700 delay-500"
+        className="absolute bottom-24 right-6 z-40 w-14 h-14 flex items-center justify-center bg-black/40 backdrop-blur-md border-2 border-white/30 rounded-full hover:bg-black/60 hover:border-white/50 transition-all duration-300 shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-700 delay-500"
         aria-label={isMuted ? "Activar audio" : "Silenciar audio"}
       >
         {isMuted ? (
@@ -79,13 +79,13 @@ export function HeroSection() {
            style={{ transitionDelay: '300ms' }}>
           Daniela Giraldo
         </p>
-        <h1 className={`font-sans text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter text-foreground leading-[0.9] mb-4 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+        <h1 className={`font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tighter text-foreground leading-[0.9] mb-4 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '500ms' }}>
           FINANZAS AL MANDO
         </h1>
         <p className={`mt-8 text-base md:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed font-light transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
            style={{ transitionDelay: '700ms' }}>
-          Asesoría financiera personalizada para tomar el control de tu futuro económico
+          Método práctico para construir libertad financiera con estrategia y propósito.
         </p>
         <div className={`mt-12 flex items-center justify-center gap-6 flex-wrap transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
              style={{ transitionDelay: '900ms' }}>
@@ -105,7 +105,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce animate-in fade-in duration-1000 delay-1000">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 animate-bounce animate-in fade-in duration-1000 delay-1000">
         <span className="text-xs tracking-[0.2em] uppercase text-muted-foreground">
           Desliza
         </span>
